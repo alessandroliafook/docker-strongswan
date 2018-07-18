@@ -19,7 +19,6 @@ docker logs <CONTAINER>
 Search for this line in the output at the top:
 
 ```
-No VPN_PASSWORD set! Generated a random password: mrXEv2S3F
 No VPN_PSK set! Generated a random PSK key: NZESSabnC
 ```
 
@@ -27,18 +26,12 @@ Here, the user hasn't set a PSK secret and password.
 
 ## Environment variables
 
-By default a single account is added for EAP and XAuth login.
-
-Its password is specified by the `VPN_PASSWORD` environment variable, and its username is specified by the `VPN_USER` variable.
-
-`VPN_USER` defaults to `user` and `VPN_PASSWORD` is randomised if not changed.
-
 The PSK (pre-shared key) is specified in the `VPN_PSK` environment variable, and is randomised as well.
 
 You can inject these variables through `docker run`:
 
 ```
-docker run ... -e VPN_USER=dave VPN_PASSWORD=dave-is-awesome ...
+docker run ... -e VPN_PSK=dave-is-awesome ...
 ```
 
 ## Volume / Configuration files
