@@ -7,7 +7,10 @@ RUN apt-get update && apt-get install -y \
   iptables \
   xl2tpd \
   module-init-tools \
-  supervisor
+  supervisor \
+  opensc \
+  libgmp10 \
+  libssl-dev
 
 ENV STRONGSWAN_VERSION 5.5.0
 ENV GPG_KEY 948F158A4E76A27BF3D07532DF42C170B34DBA77
