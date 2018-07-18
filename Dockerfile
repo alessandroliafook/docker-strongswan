@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
   supervisor \
   opensc \
   libgmp10 \
-  libssl-dev
+  libssl-dev \
+  net-tools
 
 ENV STRONGSWAN_VERSION 5.5.0
 ENV GPG_KEY 948F158A4E76A27BF3D07532DF42C170B34DBA77
@@ -60,11 +61,7 @@ ADD vpn_unsetpsk /usr/local/bin/vpn_unsetpsk
 ADD vpn_apply /usr/local/bin/vpn_apply
 
 # The password is later on replaced with a random string
-ENV VPN_USER user
-ENV VPN_PASSWORD password
 ENV VPN_PSK password
-
-VOLUME ["/etc/ipsec.d"]
 
 EXPOSE 4500/udp 500/udp 1701/udp
 
